@@ -16,7 +16,7 @@
   
   <nav class="nav-wrapper z-depth-0 grey lighten-4">
     <div class="container">
-      <a href="/" class="brand-logo">
+      <a href="landing.html" class="brand-logo">
         <img src="src/img/real_logo.png" style="width: 75px; height: auto">
       </a>
       <ul id="nav-mobile" class="right">
@@ -181,7 +181,18 @@
           <h4 class="lead">
             Feed Your Favorite Furry Friend!
           </h4>
-          <a href="/feed"><button class="btn-large orange darken-2 z-depth-0">Feed</button></a>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+
+          <a href="feed.html"><button onclick="feed()" class="btn-large orange darken-2 z-depth-0">Feed</button></a>
+          <script>
+            function feed(){
+                var mqtt = require('mqtt');
+                MQTT_SERVER = "iot.eclipse.org";
+                MQTT_PATH = "yessir";
+                mqtt.publish.single(MQTT_PATH, "LED --> ON", hostname=MQTT_SERVER);
+                console.log("done");
+            }
+          </script>
         </div>
         <br>
 <!-- feed time -->

@@ -1,7 +1,7 @@
 var video = document.getElementById('video');
 var ipAddr = "100.81.84.214";
 var url = "http://"+ipAddr+":8080/camera/livestream.m3u8";
-var debug = false;
+var debug = true;
 if(Hls.isSupported()) {
   var hls = new Hls();
   // need to know the ip address of the pi for camera
@@ -34,7 +34,7 @@ if (promise !== undefined) {
   }).catch(error => {
     // Autoplay was prevented.
     console.log("ERROR: Promise failed. Reloading page");
-    location.reload(true);
+    //location.reload(true);
 
     t.innerHTML="Video Not Working. Please Reload Your Page";
     // Show a "Play" button so that user can start playback.
