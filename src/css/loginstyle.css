@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  font-size: 16px;
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+.tim {
+  height:300px;
+}
+
+.liveStream{
+  background-color:beige;
+  border: solid black;
+}
+
+#lsTitle{
+  text-align: center;
+}
+#video{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  width: 90%;
+  height: auto;
+}

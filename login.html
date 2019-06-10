@@ -1,0 +1,303 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Mio-Treats-Sign-In</title>
+  <link href="src/css/loginstyle.css" rel="stylesheet">
+</head>
+
+<body class="gray lighten-3">
+
+  <!-- NAVBAR -->
+
+  
+  <nav class="nav-wrapper z-depth-0 grey lighten-4">
+    <div class="container">
+      <a href="/" class="brand-logo">
+        <img src="src/img/real_logo.png" style="width: 75px; height: auto">
+      </a>
+      <ul id="nav-mobile" class="right">
+          <li class="home button" style="display: block">
+            <a href="#" class="grey-text" id="home">Home</a>
+          </li>
+          <li class="logged-in" style="display: none">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in" style="display: none">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="admin" style="display: none">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create">Create Guide</a>
+          </li>
+          <!-- <li class="logged-out" style="display: none">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style="display: none">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li> -->
+      </ul>
+    </div>
+  </nav>
+
+<!-- Modals -->
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+		</div>
+		<div class="input-field">
+			<input type="text" id="signup-bio" required />
+			<label for="signup-bio">Product Code</label>
+		</div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <p class="error red-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <!-- <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <p class="error red-text center-align"></p>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Guide Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Guide Content</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Set time modal -->
+  <div id="modal-time" class="modal">
+    <div class="modal-content center-align">
+      <h4>Set a time:</h4><br />
+      <form id="time-form">
+        <div class="input-field">
+          <input id="user-date" type="date" required />
+          <input id="user-time" type="time" required />
+        </div>
+        <button class="btn green z-depth-0">Set</button>
+        <p class="error red-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+
+<!-- No user logged in-->
+<section class="logged-out">
+    <div class="container log">
+      <div class="row padding">
+        <div class="front-login" style="margin: 40px auto; max-width: 300px">
+          <h4>Welcome!</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" required />
+              <label for="login-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="login-password" required />
+              <label for="login-password">Your password</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0">Login</button>
+            <p class="error red-text center-align"></p>
+          </form>
+        </div>
+        <br>
+        <div class="sign-low" style="margin: 40px auto; max-width: 300px">
+          <h5 class="lead">
+            Need an Account?</h5>
+          <button class="btn green darken-2 z-depth-0 modal-trigger" data-target="modal-signup">Register</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <!-- Admin Actions -->
+    <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display: none">
+      <input type="email" placeholder="User email" id="admin-email" required />
+      <button class="btn-small orange darken-2 z-depth-0">Make Admin</button> 
+    </form>
+
+
+  <!-- User Logged in-->
+  <section class="logged-in">
+    <div class="container center-align">
+      <div class="row padding">
+        <div class="top-header">
+          <h2 class="lead">
+            Welcome Back!
+          </h2>
+        </div>
+        <br>
+
+        <div class="pro"></div>
+        <br>
+<!-- feed button-->
+        <div class="feed">
+          <h4 class="lead">
+            Feed Your Favorite Furry Friend!
+          </h4>
+          <a href="/feed"><button class="btn-large orange darken-2 z-depth-0">Feed</button></a>
+        </div>
+        <br>
+<!-- feed time -->
+        <div class="tim container grey lighten-2">
+          <div class="box">
+          <h5 class="lead">Choose The Time You Want To Feed Your Pet</h5> 
+          </div>
+          <br>
+          <div>
+              <button class="btn green darken-2 z-depth-0 modal-trigger" data-target="modal-time">Click Here</button>
+          </div>
+          <br>
+          <div class="schedule"></div>
+        </div>
+
+
+<!-- Updating Pictures-->
+        <hr> 
+        <div id="photo's" class="admin" style="display: none">
+          <div class="container">
+            <div class="photo-text">
+              <h4 class="lead">Here Are Your Most Recent Pet Checks</h4>
+            </div>
+            <ul class="collapsible z-depth-0 list-pic">
+              <li>
+                <div class="collapsible-header grey lighten-4 photo0">Date-Time</div>
+                <div class="collapsible-body white"><img id="pic0" src="" class="materialboxed" width="auto"></div>
+              </li>
+              <li>
+                <div class="collapsible-header grey lighten-4 photo1">Date-Time</div>
+                <div class="collapsible-body white"><img id="pic1" src="" class="materialboxed" width="auto"></div>
+              </li>
+              <li>
+                <div class="collapsible-header grey lighten-4 photo2">Date-Time</div>
+                <div class="collapsible-body white"><img id="pic2" src="" class="materialboxed" width="auto"></div>
+              </li>
+              <li>
+                <div class="collapsible-header grey lighten-4 photo3">Date-Time</div>
+                <div class="collapsible-body white"><img id="pic3" src="" class="materialboxed" width="auto"></div>
+              </li>
+              <li>
+                <div class="collapsible-header grey lighten-4 photo4">Date-Time</div>
+                <div class="collapsible-body white"><img id="pic4" src="" class="materialboxed" width="auto"></div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Live Steaming Feed-->
+<div class="container materialboxed logged-in liveStream">
+  <h4 class="lead" id="lsTitle">Live Stream Feed</h4>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <!-- Or if you want a more recent canary version -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@canary"></script> -->
+    <video id="video"></video>
+    <script src="src/js/livestream.js"></script>
+</div>
+
+
+  <!-- GUIDE LIST -->
+  <div class="container" style="margin-top: 40px;">
+    <ul class="collapsible z-depth-0 guides" style="border: none;">
+
+    </ul>
+  </div>
+
+
+  
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-functions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-storage.js"></script>
+  
+  
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#config-web-app -->
+
+  <script>
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+		apiKey: "AIzaSyBVBm-LGPGzicE7tb0h2to2HEnSqATI3qQ",
+		authDomain: "petcheck-faf5f.firebaseapp.com",
+		databaseURL: "https://petcheck-faf5f.firebaseio.com",
+    projectId: "petcheck-faf5f",
+    storageBucket: "petcheck-faf5f.appspot.com",
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+
+	//make auth and firestore references
+	const auth = firebase.auth();
+  const db = firebase.firestore();
+  const functions = firebase.functions();
+  const storage = firebase.storage();
+  const storageRef = storage.ref();
+
+  </script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+  <script>
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
+  </script>
+
+  
+  <script src="src/js/auth.js"></script>
+  <script src="src/js/login.js"></script>
+</body>
+</html>
